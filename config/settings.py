@@ -42,7 +42,7 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
 
-    'e_network',
+    'networking',
     'users',
 
     'rest_framework',
