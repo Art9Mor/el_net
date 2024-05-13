@@ -1,3 +1,4 @@
+from rest_framework import status
 from rest_framework.test import APITestCase
 
 from users.models import User
@@ -5,7 +6,14 @@ from users.serializers import CustomUserCreateSerializer
 
 
 class UsersTestCase(APITestCase):
+    """
+    Class for testing the user endpoints.
+    """
+
     def setUp(self):
+        """
+        Preparing a test environment
+        """
 
         self.user = User.objects.create(
             email='gork@mork.ork',
@@ -17,7 +25,10 @@ class UsersTestCase(APITestCase):
 
         self.client.force_authenticate(user=self.user)
 
-    def test_user_creation(self):
+    def test_create_user(self):
+        """
+        Test user creation
+        """
         data = {
             'email': 'test1@example.com',
             'first_name': 'Test1',
@@ -36,3 +47,32 @@ class UsersTestCase(APITestCase):
         self.assertEqual(user_instance.last_name, data['last_name'])
         self.assertEqual(user_instance.role, data['role'])
 
+    def test_view_user_detail(self):
+        """
+        Test view user detail
+        """
+
+        response = self.client.get(
+            f'/api/users/{self.user.id}/'
+        )
+
+        self.assertEqual(
+            response.status_code,
+            status.HTTP_200_OK,
+        )
+
+    def test_create_superuser(self):
+        """
+        Test superuser creation
+        """
+
+        self.hastur = User.objects.create(
+            email='hastur@love.craft',
+            first_name='Hastur',
+            last_name='Lovecraft',
+            password='golgofa666',
+            role='admin'
+        )
+
+        print('Info:', self.hastur)
+        self.assertEqual(self.hastur.is_admin, True)

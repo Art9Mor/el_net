@@ -43,3 +43,7 @@ class UserManager(BaseUserManager):
 
         user.is_active = True
 
+        user.save(using=self._db)
+
+        return user
+
