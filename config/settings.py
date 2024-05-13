@@ -60,7 +60,6 @@ MIDDLEWARE = [
     'django.contrib.auth.middleware.AuthenticationMiddleware',
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
-    'djoser.contrib.jwt.JWTAuthenticationMiddleware',
 ]
 
 ROOT_URLCONF = 'config.urls'
@@ -178,7 +177,7 @@ SIMPLE_JWT = {
 
 DJOSER = {
     'SERIALIZERS': {
-        'user_create': 'path.to.CustomUserCreateSerializer',
+        'user_create': 'users.serializers.CustomUserCreateSerializer',
     },
     'PERMISSIONS': {},
     'HIDE_USERS': False,
