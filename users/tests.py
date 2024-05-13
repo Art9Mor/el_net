@@ -61,9 +61,9 @@ class UsersTestCase(APITestCase):
             status.HTTP_200_OK,
         )
 
-    def test_create_superuser(self):
+    def test_create_admin(self):
         """
-        Test superuser creation
+        Test admin creation
         """
 
         self.hastur = User.objects.create(
@@ -74,5 +74,4 @@ class UsersTestCase(APITestCase):
             role='admin'
         )
 
-        print('Info:', self.hastur)
         self.assertEqual(self.hastur.is_admin, True)
