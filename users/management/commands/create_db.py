@@ -27,7 +27,7 @@ class Command(BaseCommand):
                     sql.Identifier(db_name)
                 )
             )
-            self.stdout.write(self.style.SUCCESS("Database created successfully."))
+            self.stdout.write(self.style.SUCCESS(f"Database '{db_name}' created successfully."))
 
         except psycopg2.errors.DuplicateDatabase:
             cursor.execute(
@@ -40,7 +40,7 @@ class Command(BaseCommand):
                     sql.Identifier(db_name)
                 )
             )
-            self.stdout.write(self.style.SUCCESS("Database recreated successfully."))
+            self.stdout.write(self.style.SUCCESS(f"Database '{db_name}' recreated successfully."))
 
         cursor.close()
         conn.close()

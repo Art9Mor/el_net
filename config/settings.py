@@ -89,11 +89,9 @@ WSGI_APPLICATION = 'config.wsgi.application'
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.postgresql',
-        'NAME': os.getenv('POSTGRES_DB'),
+        'NAME': os.getenv('POSTGRES_DB', 'el_net'),
         'USER': os.getenv('POSTGRES_USER'),
         'PASSWORD': os.getenv('POSTGRES_PASSWORD'),
-        # 'HOST': os.getenv('HOST'),
-        # 'PORT': os.getenv('PORT'),
     }
 }
 
@@ -174,6 +172,7 @@ SIMPLE_JWT = {
 }
 
 # Djoser settings
+# https://djoser.readthedocs.io/en/latest/introduction.html
 
 DJOSER = {
     'SERIALIZERS': {
