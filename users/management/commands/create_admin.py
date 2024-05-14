@@ -1,19 +1,21 @@
+import os
+
 from django.core.management import BaseCommand
 
 from users.models import User
 
 
 class Command(BaseCommand):
-    help = 'Creates admin users'
+    help = 'Creates admin user'
 
     def handle(self, *args, **options):
         user = User.objects.create(
-            email='admin@admin.ad',
-            first_name='Admin',
-            last_name='User',
-            role='admin',
+            email=os.getenv('ADMIN_EMAIL'),
+            first_name=os.getenv('ADMIN_FIRST_NAME'),
+            last_name=os.getenv('ADMIN_LAST_NAME'),
+            role=os.getenv('ADMIN_ROLE'),
             is_active=True
         )
 
-        user.set_password('666')
+        user.set_password(os.getenv('ADMIN_PASSWORD'))
         user.save()
