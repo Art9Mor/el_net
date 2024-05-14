@@ -51,6 +51,7 @@ This project provides an opportunity to get acquainted with various types of ele
 There are two ways to do this: manually and using a special script
 
 - Using a script:
+
 There is a script `deploy.sh` in the root folder of the project.
 The `deploy.sh` script runs a series of commands to prepare and deploy a Django application.
 
@@ -70,3 +71,37 @@ The `deploy.sh` script runs a series of commands to prepare and deploy a Django 
 
 
 - Manual:
+
+Write the commands from `deploy.sh` manually on the command line of your IDE.
+In this case the `python3 manage.py create_db` command is optional.
+
+
+4. Starting the server
+
+There are several options for how you can run the server: locally or using docker
+- locally:
+
+        python3 manage.py runserver
+
+- using docker:
+
+        docker build -t app-name .
+
+        docker run -p 8000:8000 app-name
+
+- docker compose:
+
+        docker compose up --build
+
+
+## Main stack
+
+- python(3.11)
+- Django(5.0.5)
+- django-dotenv(1.4.2)
+- django-filter(24.2)
+- django-restframework(0.0.1)
+- djangorestframework-simplejwt(5.3.1)
+- djoser(2.2.2)
+- drf-yasg(1.21.7)
+- psycopg2-binary(2.9.9)
