@@ -10,12 +10,12 @@ This project provides an opportunity to get acquainted with various types of ele
 ## Instructions  
 
 1. Clone the repository  
-    
-- https
 
-    https://github.com/Art9Mor/el_net.git
+   - https
 
--ssh
+          git clone https://github.com/Art9Mor/el_net.git
 
-    git@github.com:Art9Mor/el_net.git
+   - ssh
+
+          git@github.com:Art9Mor/el_net.git
     
