@@ -22,7 +22,7 @@ This project provides an opportunity to get acquainted with various types of ele
 2. Set up environment variables
 
     - Create an `.env` file in the project root
-    - Copy the contents from ".env.sample" to the file you created
+    - Copy the contents from `.env.sample` to the file you created
     - Fill in the variable values with your data
    
    Variable values:
@@ -46,4 +46,27 @@ This project provides an opportunity to get acquainted with various types of ele
         TIME_ZONE=your_timezone
         
 
-3. 
+3. Installing Requirements and Migrations
+
+There are two ways to do this: manually and using a special script
+
+- Using a script:
+There is a script `deploy.sh` in the root folder of the project.
+The `deploy.sh` script runs a series of commands to prepare and deploy a Django application.
+
+`python3 -m venv env`: Creates a virtual Python environment called `env` that isolates your project's dependencies from the global system.
+
+`source env/bin/activate`: Activates the virtual environment.
+
+`pip3 install -r requirements.txt`: Installs all required dependencies for the project, listed in the `requirements.txt` file.
+
+`python3 manage.py create_db`: Creates (and updates if available) a new database on your local server.
+
+`python3 manage.py migrate`: Applies all database migrations.
+
+`python3 manage.py collectstatic --no-input`: Collects static application files into one directory.
+
+`deactivate`: Deactivates the virtual environment, returning you to the global environment.
+
+
+- Manual:
