@@ -44,6 +44,13 @@ This project provides an opportunity to get acquainted with various types of ele
         
         LANGUAGE_CODE=chose_your_language
         TIME_ZONE=your_timezone
+
+        # for admin user creation
+        ADMIN_EMAIL=
+        ADMIN_FIRST_NAME=
+        ADMIN_LAST_NAME=
+        ADMIN_ROLE=
+        ADMIN_PASSWORD=
         
 
 3. Installing Requirements and Migrations
@@ -92,6 +99,36 @@ There are several options for how you can run the server: locally or using docke
 - docker compose:
 
         docker compose up --build
+
+## Some helpful commands
+
+1. Admin
+
+        python3 manage.py create_admin
+
+This command creates a user with administrator rights.
+This user has some fields:
+
+        email
+        first_name
+        last_name
+        role
+        password
+
+
+You can fill them in the `.env` file.
+
+2. Simple user
+
+        python3 manage.py create_user
+
+This command creates an authenticated user with fields
+
+        email='simpleuser@elnet.com',
+        first_name='John',
+        last_name='Doe',
+        role='user',
+        password='simpleuserpassword'
 
 
 ## Main stack
