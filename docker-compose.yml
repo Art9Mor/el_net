@@ -3,6 +3,7 @@ version: "3.11"
 services:
   db:
     image: postgres
+    container_name: db
     restart: always
     environment:
       - POSTGRES_USER=${POSTGRES_USER}

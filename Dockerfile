@@ -5,7 +5,7 @@ WORKDIR /running
 COPY ./requirements.txt /running/
 
 RUN pip install --upgrade pip
-RUN pip install --no-cache-dir -r /code/requirements.txt
+RUN pip install --no-cache-dir -r /running/requirements.txt
 
 COPY . .
 
